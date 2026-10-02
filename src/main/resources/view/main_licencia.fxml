@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pe.edu.upeu.sysventas.controller.LicenciaController">
+    <VBox spacing="12" AnchorPane.topAnchor="15" AnchorPane.leftAnchor="15" AnchorPane.rightAnchor="15" AnchorPane.bottomAnchor="15">
+        <Label text="SISTEMA DE REGISTRO DE LICENCIAS DE CONDUCIR">
+            <font><Font name="System Bold" size="22"/></font>
+        </Label>
+        <Separator/>
+        <GridPane hgap="10" vgap="10">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <columnConstraints>
+                <ColumnConstraints prefWidth="130"/><ColumnConstraints hgrow="SOMETIMES" prefWidth="230"/>
+                <ColumnConstraints prefWidth="150"/><ColumnConstraints hgrow="SOMETIMES" prefWidth="230"/>
+            </columnConstraints>
+            <Label text="DNI:" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtDni" promptText="8 dígitos" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label text="Nombre completo:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtNombre" promptText="Nombres y apellidos" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+            <Label text="Fecha nacimiento:" GridPane.rowIndex="1"/>
+            <DatePicker fx:id="dpNacimiento" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text="Tipo de licencia:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <ComboBox fx:id="cbxTipoLicencia" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+            <Label text="Fecha emisión:" GridPane.rowIndex="2"/>
+            <DatePicker fx:id="dpEmision" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Label text="Fecha vencimiento:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+            <DatePicker fx:id="dpVencimiento" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+            <Label text="Teléfono:" GridPane.rowIndex="3"/>
+            <TextField fx:id="txtTelefono" promptText="9 dígitos" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        </GridPane>
+
+        <HBox spacing="10">
+            <Button text="REGISTRAR" onAction="#registrar"/>
+            <Button text="MODIFICAR" onAction="#modificar"/>
+            <Button text="ELIMINAR" onAction="#eliminar"/>
+            <Button text="LIMPIAR" onAction="#limpiar"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="txtFiltro" promptText="Buscar por DNI o nombre" prefWidth="230"/>
+            <Button text="BUSCAR" onAction="#buscar"/>
+        </HBox>
+
+        <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colDni" text="DNI" prefWidth="100"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="190"/>
+                <TableColumn fx:id="colNacimiento" text="Nacimiento" prefWidth="110"/>
+                <TableColumn fx:id="colTipo" text="Licencia" prefWidth="90"/>
+                <TableColumn fx:id="colEmision" text="Emisión" prefWidth="110"/>
+                <TableColumn fx:id="colVencimiento" text="Vencimiento" prefWidth="110"/>
+                <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="110"/>
+                <TableColumn fx:id="colEstado" text="Estado" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
